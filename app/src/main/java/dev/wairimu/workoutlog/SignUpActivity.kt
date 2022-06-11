@@ -56,30 +56,43 @@ class SignUpActivity : AppCompatActivity() {
         val email = etEmailAddress.text.toString()
         val signUpPassword =  etSignUpPassword.text.toString()
         val signUpConfirmPassword = etSignUpConfirmPassword.text.toString()
+        var error = false
 
         if(firstName.isBlank()){
             tilFirstName.error = "Firstname required"
+            error = true
         }
         if(lastName.isBlank()){
             tilLastName.error = "Lastname required"
+            error = true
         }
         if(signUpPassword.isBlank()){
             tilSignUpPassword.error = "Password required"
+            error = true
         }
         if(signUpConfirmPassword.isBlank()){
             tilConfirmPassword.error = "Confirm password"
+            error = true
         }
         if (email.isBlank()){
             tilEmailAddress.error = "Email address required"
+            error = true
         }
         if(signUpPassword != signUpConfirmPassword){
              tilConfirmPassword.error = "Password does not match"
+            error = true
         }
         if(signUpPassword.length<8){
             tilSignUpPassword.error = "Password too short"
+            error = true
         }
         if(signUpPassword.length>16){
             tilSignUpPassword.error = "Password too long"
+            error = true
+        }
+        if(!error){
+           startActivity(Intent(this,HomeActivity::class.java))
+            finish()
         }
 
     }
