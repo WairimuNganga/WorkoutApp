@@ -51,11 +51,11 @@ class SignUpActivity : AppCompatActivity() {
         }
     }
     fun validateSignUp(){
-        var firstName = etFirstName.text.toString()
-        var lastName = etLastName.text.toString()
-        var email = etEmailAddress.text.toString()
-        var signUpPassword =  etSignUpPassword.text.toString()
-        var signUpConfirmPassword = etSignUpConfirmPassword.text.toString()
+        val firstName = etFirstName.text.toString()
+        val lastName = etLastName.text.toString()
+        val email = etEmailAddress.text.toString()
+        val signUpPassword =  etSignUpPassword.text.toString()
+        val signUpConfirmPassword = etSignUpConfirmPassword.text.toString()
 
         if(firstName.isBlank()){
             tilFirstName.error = "Firstname required"
@@ -72,6 +72,16 @@ class SignUpActivity : AppCompatActivity() {
         if (email.isBlank()){
             tilEmailAddress.error = "Email address required"
         }
+        if(signUpPassword != signUpConfirmPassword){
+             tilConfirmPassword.error = "Password does not match"
+        }
+        if(signUpPassword.length<8){
+            tilSignUpPassword.error = "Password too short"
+        }
+        if(signUpPassword.length>16){
+            tilSignUpPassword.error = "Password too long"
+        }
 
     }
+
 }
