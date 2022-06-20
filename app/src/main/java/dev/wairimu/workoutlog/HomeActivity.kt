@@ -5,25 +5,29 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.fragment.app.FragmentContainerView
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import dev.wairimu.workoutlog.databinding.ActivityHomeBinding
+import dev.wairimu.workoutlog.databinding.ActivityLoginBinding
+import dev.wairimu.workoutlog.databinding.ActivitySignUpBinding
 
 class HomeActivity : AppCompatActivity() {
-    lateinit var fcvHome:FragmentContainerView
-    lateinit var  bnvHome:BottomNavigationView
+    lateinit var binding:ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
-        castView()
-        setUpBottomNav()
+        binding = ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
+        castViews()
+        setUpBottomNav()
     }
-    fun castView(){
-        fcvHome = findViewById(R.id.fcvHome)
-        bnvHome = findViewById(R.id.bnvHome)
+
+    fun castViews(){
+        binding.fcvHome
+        binding.bnvHome
     }
     fun setUpBottomNav(){
 //        This will help switch to a different navigation
-        bnvHome.setOnItemSelectedListener { item->
+       binding.bnvHome.setOnItemSelectedListener { item->
             when(item.itemId) {
                 R.id.plan -> {
 //                    val transaction = supportFragmentManager.beginTransaction()
