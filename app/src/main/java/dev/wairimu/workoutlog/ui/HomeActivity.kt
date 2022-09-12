@@ -1,13 +1,9 @@
-package dev.wairimu.workoutlog
+package dev.wairimu.workoutlog.ui
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.fragment.app.FragmentContainerView
-import com.google.android.material.bottomnavigation.BottomNavigationView
+import dev.wairimu.workoutlog.R
 import dev.wairimu.workoutlog.databinding.ActivityHomeBinding
-import dev.wairimu.workoutlog.databinding.ActivityLoginBinding
-import dev.wairimu.workoutlog.databinding.ActivitySignUpBinding
 
 class HomeActivity : AppCompatActivity() {
     lateinit var binding:ActivityHomeBinding
@@ -25,6 +21,23 @@ class HomeActivity : AppCompatActivity() {
         binding.fcvHome
         binding.bnvHome
     }
+//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+//        menuInflater.inflate(R.menu.menu_main,menu)
+//        return true
+//    }
+//
+//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//        if (item.itemId == R.id.miLogout) {
+//            Log.i(Tag, "Logout")
+//            //Log out the user
+//
+//            val logoutIntent= Intent(this,LoginActivity::class.java)
+//            logoutIntent.flags=Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//            startActivity(logoutIntent)
+//
+//        }
+//        return super.onOptionsItemSelected(item)
+//    }
     fun setUpBottomNav(){
 //        This will help switch to a different navigation
        binding.bnvHome.setOnItemSelectedListener { item->
